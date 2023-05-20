@@ -7,7 +7,7 @@ User=maria_exporter
 Group=maria_exporter
 Type=simple
 Restart=always
-ExecStart=/opt/maria_exporter/ \
+ExecStart=/opt/maria_exporter/maria_exporter \
 --config.my-cnf /opt/maria_exporter/.mysqld_exporter.cnf \
 --collect.global_status \
 --collect.info_schema.innodb_metrics \
