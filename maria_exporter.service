@@ -7,7 +7,7 @@ User=maria_exporter
 Group=maria_exporter
 Type=simple
 Restart=always
-ExecStart=/opt/maria_exporter/ \
+ExecStart=/opt/maria_exporter/maria_exporter \
 --config.my-cnf /opt/maria_exporter/.mysqld_exporter.cnf \
 --collect.global_status \
 --collect.info_schema.innodb_metrics \
@@ -19,11 +19,11 @@ ExecStart=/opt/maria_exporter/ \
 --collect.info_schema.query_response_time \
 --collect.info_schema.userstats \
 --collect.info_schema.tables \
---collect.info_schema.tablelocks \
---collect.info_schema.file_events \
---collect.info_schema.eventswaits \
---collect.info_schema.indexiowaits \
---collect.info_schema.tableiowaits \
+--collect.perf_schema.tablelocks \
+--collect.perf_schema.file_events \
+--collect.pref_schema.eventswaits \
+--collect.perf_schema.indexiowaits \
+--collect.perf_schema.tableiowaits \
 --collect.slave_status \
 --web.listen-address=0.0.0.0:9104
 
