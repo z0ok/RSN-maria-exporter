@@ -1,0 +1,31 @@
+[Unit]
+Description=MariaDB mySQL Exporter
+After=network.target
+
+[Service]
+User=maria_exporter
+Group=maria_exporter
+Type=simple
+Restart=always
+ExecStart=/opt/maria_exporter/ \
+--config.my-cnf /opt/maria_exporter/.mysqld_exporter.cnf \
+--collect.global_status \
+--collect.info_schema.innodb_metrics \
+--collect.auto_increment.columns \
+--collect.info_schema.processlist \
+--collect.binlog_size \
+--collect.info_schame.tablestats \
+--collect.global_variables \
+--collect.info_schema.query_response_time \
+--collect.info_schema.userstats \
+--collect.info_schema.tables \
+--collect.info_schema.tablelocks \
+--collect.info_schema.file_events \
+--collect.info_schema.eventswaits \
+--collect.info_schema.indexiowaits \
+--collect.info_schema.tableiowaits \
+--collect.slave_status \
+--web.listen-address=0.0.0.0:9104
+
+[Install]
+WantedBy=multi-user.target
